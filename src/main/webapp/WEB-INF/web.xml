@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"> -->
+<web-app version="4.0"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       
+http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+	<!-- Servlet mapping -->
+	<servlet>
+		<servlet-name>S_Test</servlet-name>
+		<servlet-class>_1.ServletTest</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>S_Test</servlet-name>
+		<url-pattern>/start</url-pattern>
+	</servlet-mapping>
+
+	<!-- logging, debugging -->
+	<context-param>
+		<description>로깅 여부</description>
+		<param-name>logEnabled</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<context-param>
+		<description>디버깅 레벨</description>
+		<param-name>debugLevel</param-name>
+		<param-value>5</param-value>
+	</context-param>
+
+	<!-- _10.layout -->
+	<context-param>
+		<description>아이디</description>
+		<param-name>id</param-name>
+		<param-value>jsp</param-value>
+	</context-param>
+
+	<context-param>
+		<description>비밀번호</description>
+		<param-name>password</param-name>
+		<param-value>jsp</param-value>
+	</context-param>
+
+	<!-- error, exception -->
+	<!-- <error-page> <error-code>404</error-code> <location>/ex3_implicit_object/_6.exception/error/error404.jsp</location> 
+		</error-page> <error-page> <error-code>500</error-code> <location>/ex3_implicit_object/_6.exception/error/error500.jsp</location> 
+		</error-page> <error-page> <exception-type>java.lang.NullPointerException</exception-type> 
+		<location>/ex3_implicit_object/_6.exception/ex1/readParameter.jsp</location> 
+		</error-page> -->
+
+</web-app>
