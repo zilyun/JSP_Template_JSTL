@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,9 @@
 <title>top.jsp</title>
 <style>
 .bg-dark {
-	background-color: #28a745!important;
+	background-color: #28a745 !important;
 }
+
 .navbar-dark .navbar-nav .nav-link {
 	color: rgb(255, 255, 255);
 }
@@ -24,26 +26,21 @@
 		<%-- flex-row-reverse 추가 - 오른쪽 끝으로 붙어요 --%>
 		<div class="collapse navbar-collapse flex-row-reverse"
 			id="collapsibleNavbar">
-			<%
-			String id = (String) session.getAttribute("id");
-			if(id!=null && !id.equals("")) {
-			%>
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" ><%=id %>님이 로그인 되었습니다.</a></li>
-				<li class="nav-item"><a class="nav-link" href="./logout.jsp">로그아웃</a></li>
+				<c:if test="${!empty sessionScope.id}">
+					<li class="nav-item"><a class="nav-link">${id}님이 로그인 되었습니다.</a></li>
+					<li class="nav-item"><a class="nav-link" href="update.net">정보수정</a></li>
+					<c:if test="${sessionScope.id=='admin'}">
+						<li class="nav-item"><a class="nav-link" href="list.net">(회원정보)</a></li>
+					</c:if>
+					<li class="nav-item"><a class="nav-link" href="logout.net">로그아웃</a></li>
+				</c:if>
+
+				<c:if test="${empty sessionScope.id}">
+					<li class="nav-item"><a class="nav-link" href="join.net">회원가입</a></li>
+					<li class="nav-item"><a class="nav-link" href="login.net">로그인</a></li>
+				</c:if>
 			</ul>
-			<%
-			} else {
-			%>
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="./join.jsp">회원가입</a></li>
-			</ul>
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="./login.jsp">로그인</a></li>
-			</ul>
-			<%
-			}
-			%>
 		</div>
 	</nav>
 </body>

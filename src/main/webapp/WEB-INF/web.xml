@@ -7,48 +7,11 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       
 http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
 
-	<!-- Servlet mapping -->
-	<servlet>
-		<servlet-name>S_Test</servlet-name>
-		<servlet-class>_1.ServletTest</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>S_Test</servlet-name>
-		<url-pattern>/start</url-pattern>
-	</servlet-mapping>
-
-	<!-- logging, debugging -->
-	<context-param>
-		<description>로깅 여부</description>
-		<param-name>logEnabled</param-name>
-		<param-value>true</param-value>
-	</context-param>
-
-	<context-param>
-		<description>디버깅 레벨</description>
-		<param-name>debugLevel</param-name>
-		<param-value>5</param-value>
-	</context-param>
-
-	<!-- _10.layout -->
-	<context-param>
-		<description>아이디</description>
-		<param-name>id</param-name>
-		<param-value>jsp</param-value>
-	</context-param>
-
-	<context-param>
-		<description>비밀번호</description>
-		<param-name>password</param-name>
-		<param-value>jsp</param-value>
-	</context-param>
-
-	<!-- error, exception -->
-	<!-- <error-page> <error-code>404</error-code> <location>/ex3_implicit_object/_6.exception/error/error404.jsp</location> 
-		</error-page> <error-page> <error-code>500</error-code> <location>/ex3_implicit_object/_6.exception/error/error500.jsp</location> 
-		</error-page> <error-page> <exception-type>java.lang.NullPointerException</exception-type> 
-		<location>/ex3_implicit_object/_6.exception/ex1/readParameter.jsp</location> 
-		</error-page> -->
+	<!-- http://localhost:8088/JSP_Template_JSTL 주소로 요청이 온 경우 
+		webapp 아래에서 welcome-file 파일을 차례대로 찾습니다. -->
+	<welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
 </web-app>
