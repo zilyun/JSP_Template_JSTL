@@ -15,13 +15,12 @@ public class TemplateFrontController extends jakarta.servlet.http.HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("요청 주소: " + request.getRequestURL());
 		/*
-		 * 요청된 전체 URL 중에서 포트번호 다음부터 마지막 문자열까지 반환됩니다. 
-		 * 예) http://localhost:8088/JspProject/BoardList.do인 경우
-		 * 	  "/JspProject/BoardList.do"
-		 * 	반환합니다.
+		 * RequestURI = /JSP_Template_JSTL/templatetest.net 
+		 * contextPath =/JSP_Template_JSTL 
+		 * command = /templatetest.net
 		 */
 		String RequestURI = request.getRequestURI();
 		System.out.println(RequestURI);
