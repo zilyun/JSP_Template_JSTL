@@ -19,9 +19,14 @@ public class ActionForward {
 	public void setRedirect(boolean b) {
 		redirect = b;
 	}
-
+	
 	// property path 의 get 메소드 
 	public String getPath() {
 		return path;
+	}
+	
+	// property path 의 set 메소드
+	public void setPath(String p) {
+		path = p;
 	}
 }

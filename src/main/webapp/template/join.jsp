@@ -7,21 +7,23 @@
 <meta charset="UTF-8" />
 <title>회원가입</title>
 <!-- 회원가입 디자인 -->
-<link href="../../css/NewFile.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/NewFile.css"
+	rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="../../js/validate3.js"></script>
+<script src="${pageContext.request.contextPath}/js/validate.js"></script>
 <!-- 우편 -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <body style="background-color: #474e5d">
 	<div class="container">
-		<form method="post" action="send" name="myform" id="myform">
+		<form method="post" action="joinProcess.net" name="myform" id="myform">
 			<fieldset>
 				<legend>유효성 검사</legend>
 				<div>
 					<label for="id">ID</label> <input type="text" size="10" name="id"
-						id="id" placeholder="Enter ID"> <input type=button id="idcheck"
-						value="ID중복검사">
+						id="id" placeholder="Enter ID"> <input type=button
+						id="idcheck" value="ID중복검사">
+					<div id="opener_message"></div><input type="hidden" id="result">
 				</div>
 
 				<div>
@@ -32,8 +34,8 @@
 					maxLength="6" name="jumin1" id="jumin1" placeholder="주민번호 앞자리">
 				<b> - </b> <input type="text" size="7" maxLength="7" name="jumin2"
 					id="jumin2" placeholder="주민번호 뒷자리"> <label for="email">E-Mail</label>
-				<input type="text" name="email" id="email"> <input
-					type="text" name="domain" id="domain"> <b> @ </b> <select
+				<input type="text" name="email" id="email"> <b> @ </b> <input
+					type="text" name="domain" id="domain">  <select
 					name=sel id=sel>
 					<option value="">직접입력</option>
 					<option value="naver.com">naver.com</option>

@@ -26,13 +26,14 @@ footer {
 	line-height: 3rem;
 }
 </style>
+<script>
+	let result = '${message}';
+	if (result != '') {
+		alert(result);
+		<%session.removeAttribute("message");%>
+	}
+</script>
 </head>
-<%
-String pagefile = request.getParameter("page");
-if (pagefile == null) {
-	pagefile = "newitem";
-}
-%>
 <body>
 	<header>
 		<div class="jumbotron text-center" style="margin-bottom: 0">
@@ -53,7 +54,7 @@ if (pagefile == null) {
 			</div>
 			<div class="col-sm-8" style="margin-bottom: 5rem">
 				<section>
-					<jsp:include page='<%=pagefile + ".jsp"%>' />
+					<jsp:include page='${pagefile}.jsp' />
 				</section>
 			</div>
 
@@ -67,7 +68,7 @@ if (pagefile == null) {
 	</footer>
 	
 	<script>
-	const pagefile = '<%=pagefile%>'; <%-- <- 페이지 안에 어디든 가능하다. --%>
+	const pagefile = '${pagefile}'; <%-- <- 페이지 안에 어디든 가능하다. --%>
 	const filelist = ["newitem", "bestitem", "useditem"];
 	
 	for(let index=0; index < filelist.length; index++) {
