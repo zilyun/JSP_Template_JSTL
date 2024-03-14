@@ -68,12 +68,12 @@ public class DAO {
 		try {
 			connectionDB();
 
-			String sql = "insert into template_join "
+			String insert_sql = "insert into template_join "
 					+ " (id, password, jumin, email, gender, hobby, post, address, intro) "
 					+ " values(?,?,?,?,?,?,?,?,?)";
 
 			// PreparedStatement 객체 얻기
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(insert_sql);
 			pstmt.setString(1, join.getId());
 			pstmt.setString(2, join.getPassword());
 			pstmt.setString(3, join.getJumin());
@@ -138,13 +138,13 @@ public class DAO {
 		try {
 			connectionDB();
 
-			String select_sql = " update template_join "
+			String update_sql = " update template_join "
 							  + " set password=?, jumin=?, email=?, gender=?,  "
 							  + " 	  hobby=?, post=?, address=?, intro=? "
 							  + " where id = ?";
 
 			// PreparedStatement 객체 얻기
-			pstmt = conn.prepareStatement(select_sql);
+			pstmt = conn.prepareStatement(update_sql);
 			pstmt.setString(1, join.getPassword());
 			pstmt.setString(2, join.getJumin());
 			pstmt.setString(3, join.getEmail());
@@ -202,6 +202,32 @@ public class DAO {
 		}
 		
 		return list;
+	}
+	
+	public int delete(String id) {
+		int result = 0;
+		
+		try {
+			connectionDB();
+
+			String delete_sql = " delete "
+							  + " from template_join "
+							  + " where id = ?";
+
+			// PreparedStatement 객체 얻기
+			pstmt = conn.prepareStatement(delete_sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception se) {
+			se.printStackTrace();
+			result = -1;
+		} finally {
+			pstmtClose(pstmt);
+			connClose(conn);
+		}
+		
+		return result;
 	}
 
 	public void rsClose(ResultSet rs) {
